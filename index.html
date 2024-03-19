@@ -1,0 +1,94 @@
+
+<!--
+Copyright (c) 2020-2021, NVIDIA CORPORATION.  All rights reserved.
+
+NVIDIA CORPORATION and its licensors retain all intellectual property
+and proprietary rights in and to this software, related documentation
+and any modifications thereto.  Any use, reproduction, disclosure or
+distribution of this software and related documentation without an express
+license agreement from NVIDIA CORPORATION is strictly prohibited.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<base target="_blank" />
+<title>Play Fortnite® | NVIDIA GeForce NOW</title>
+<meta name="description" content="Play Fortnite®, your own library of PC games, and free-to-play games you love.">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@NVIDIAGFN" />
+<meta name="twitter:creator" content="@NVIDIAGFN" />
+<meta name="twitter:title" content="Play Fortnite® on NVIDIA GeForce NOW" />
+<meta name="twitter:description" content="Play Fortnite® by Epic Games, your own library of PC games, and free-to-play games you love, with GeForce NOW." />
+
+<meta property="fb:app_id" content="1679326302390196" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NVIDIA GeForce NOW">
+<meta property="og:title" content="Play Fortnite® on GeForce NOW" />
+<meta property="og:description" content="Play your own library of PC and free-to-play games you love." />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:image" content="https://img.nvidiagrid.net/apps/101138111/ZZ/TV_BANNER_01_94ff5082-1d9e-40a3-9829-9a1abcbea7cc.jpg">
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1080" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-title" content="Fortnite® on GeForce NOW" />
+
+
+<link rel="icon" type="image/png" href="/mall/assets/img/GFN_logo1024_v2.png" />
+<link rel="apple-touch-icon" href="/mall/assets/icons/GFN-Logo-120.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/mall/assets/icons/GFN-Logo-152.png" />
+<link rel="apple-touch-icon" sizes="167x167" href="/mall/assets/icons/GFN-Logo-167.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/mall/assets/icons/GFN-Logo-180.png" />
+
+
+<script type="text/javascript">
+(function () {
+'use strict';
+
+const EXTRA_QUERY_PARAMS = {"assetId":"asset-id","lang":"lang","idType":"id-type","branch":"branch"};
+const SOURCE_QUERY_PARAMS = {"source":"source","partnerId":"partner-id"};
+
+const APP_PARAMS = (function GetAppParamsString(queryParams) {
+    try {
+        const queryParamsIter = queryParams
+            ? Object.entries(queryParams)
+            : new URLSearchParams({
+                  ...Object.fromEntries(new URL(window.location.href).searchParams),
+                  ...Object.fromEntries(new URLSearchParams(window.location.hash.substring(1)))
+              }).entries();
+        const appParams = new URLSearchParams();
+
+        for (const [key, value] of queryParamsIter) {
+            if (!Object.values(EXTRA_QUERY_PARAMS).includes(key)) {
+                appParams.set(key, value);
+            }
+        }
+
+        if (appParams.get(SOURCE_QUERY_PARAMS.source) && !appParams.get(SOURCE_QUERY_PARAMS.partnerId)) {
+            appParams.set(SOURCE_QUERY_PARAMS.partnerId, appParams.get(SOURCE_QUERY_PARAMS.source));
+        }
+
+        return appParams.toString();
+    } catch (err) {
+        return '';
+    }
+})(null);
+
+const BRANCH_NAME = "";
+
+
+
+window.location.href = window.location.origin + BRANCH_NAME + "/mall/#/deeplink?" + APP_PARAMS;
+
+})();
+</script>
+
+</head>
+<body></body>
+</html>
